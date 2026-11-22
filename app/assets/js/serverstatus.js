@@ -61,5 +61,4 @@ exports.getStatus = function(address, port = 25565){
             // ECONNREFUSED = Unable to connect to port.
         })
     })
-
 }

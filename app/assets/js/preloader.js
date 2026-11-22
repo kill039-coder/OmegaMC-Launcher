@@ -12,7 +12,7 @@ const { HeliosDistribution } = require('helios-core/common')
 
 const logger = LoggerUtil.getLogger('Preloader')
 
-logger.info('Loading..')
+logger.info('Caricamento..')
 
 // Load ConfigManager
 ConfigManager.load()
@@ -34,7 +34,7 @@ function onDistroLoad(data){
         
         // Resolve the selected server if its value has yet to be set.
         if(ConfigManager.getSelectedServer() == null || data.getServerById(ConfigManager.getSelectedServer()) == null){
-            logger.info('Determining default selected server..')
+            logger.info('Determinazione del server selezionato predefinito..')
             ConfigManager.setSelectedServer(data.getMainServer().rawServer.id)
             ConfigManager.save()
         }
@@ -45,7 +45,7 @@ function onDistroLoad(data){
 // Ensure Distribution is downloaded and cached.
 DistroAPI.getDistribution()
     .then(heliosDistro => {
-        logger.info('Loaded distribution index.')
+        logger.info('Indice di distribuzione ponderato.')
 
         onDistroLoad(heliosDistro)
     })
